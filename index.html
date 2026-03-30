@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Country Intelligence Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🌍 Country Intelligence Dashboard</h1>
+    <p>Explore and compare countries by population, region, and more.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <input type="text" id="searchInput" placeholder="🔍 Search by country or capital..." />
+      <select id="regionFilter">
+        <option value="">All Regions</option>
+        <option value="Africa">Africa</option>
+        <option value="Americas">Americas</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+      </select>
+      <select id="sortSelect">
+        <option value="name">Sort by Name (A-Z)</option>
+        <option value="population-desc">Population (High → Low)</option>
+        <option value="population-asc">Population (Low → High)</option>
+        <option value="area-desc">Area (Large → Small)</option>
+      </select>
+    </section>
+
+    <section class="stats-bar">
+      <div class="stat">
+        <span id="countryCount">0</span>
+        <label>Countries Shown</label>
+      </div>
+      <div class="stat">
+        <span id="totalPop">0</span>
+        <label>Total Population</label>
+      </div>
+    </section>
+
+    <div id="errorMsg" class="error hidden"></div>
+    <div id="loader" class="loader">Loading countries...</div>
+    <div id="cardsGrid" class="cards-grid"></div>
+    <div id="noResults" class="no-results hidden">No countries match your search or filter.</div>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="closeModal" class="close-btn">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Data provided by <a href="https://restcountries.com" target="_blank">REST Countries API</a> — Free &amp; open source.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
